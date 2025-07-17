@@ -14,15 +14,14 @@ R ile neler yapılabilir?
 R ve istatistiksel düşünme arasındaki ilişki
 
 🔗 Bağlantılar & Kaynaklar
-📘 Kitap:
-A Statistician’s R Notebook
+📘 Kitap: R Programlama
 🔗 https://rprogramlama.netlify.app/
 
-📝 Blog sayfam:
+📝 Blog sayfam: A Statistician’s R Notebook
 🔗 https://mfatihtuzen.netlify.app/
 
-🐙 GitHub projesi:
-🔗 r-istatistik-akademisi
+🐙 GitHub projesi:R Programlama ve İstatistik Akademisi
+🔗 https://github.com/MFatihTuzen/r-istatistik-akademisi
 
 📦 R İndir:
 🔗 https://cran.r-project.org/
