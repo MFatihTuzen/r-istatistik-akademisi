@@ -1,0 +1,118 @@
+---
+title: "RStudio Arayüzü"
+author: "Dr. M. Fatih Tüzen"
+format:
+  revealjs:
+    theme: white
+    slide-number: true
+    self-contained: true
+    footer: 📺 R Programlama ve İstatistik Akademisi
+    scrollable: true
+execute:
+  echo: true
+  eval: true
+  warning: false
+  message: false
+---
+
+## 🎯 RStudio Nedir?
+
+-   R dili için özel geliştirilmiş, güçlü bir **IDE** (Entegre Geliştirme Ortamı)
+
+-   R ile veri analizi, görselleştirme, raporlama gibi işlemleri kolaylaştırır
+
+-   Açık kaynak, ücretsiz, çok platformlu
+
+💡 **İpucu:** Başlangıç seviyesinde RStudio kullanmak kod yazmayı çok daha kolay hale getirir!
+
+## 🧭 RStudio Arayüzü
+
+RStudio 4 ana panelden oluşur:
+
+1.  **Console (Konsol):** Komutların çalıştırıldığı alan
+
+2.  **Source (Kaynak Kod):** Betiklerin yazıldığı alan
+
+3.  **Environment/History:** Değişkenler, önceki komutlar
+
+4.  **Files/Plots/Packages/Help/Viewer:** Yardımcı sekmeler
+
+📌 Paneller arasında geçişler oldukça akıcıdır.
+
+💡 **İpucu:** `Ctrl + 1` (Console), `Ctrl + 2` (Script Paneli) ile hızlı geçiş yapabilirsin.
+
+## 🛠️ Konsol Paneli
+
+-   Direkt R komutlarını yazıp çalıştırma
+
+-   Hatalar ve çıktılar burada görüntülenir
+
+-   Kısa hesaplamalar ve testler için idealdir.
+
+-   `>` sembolü yeni komut bekler.
+
+-   Örn: `2 + 2` yaz → Enter'a bas → 4 çıktısı gelir
+
+💡 **İpucu:** Yukarı/ aşağı ok ile önceki komutlar arasında gezinebilirsin.
+
+## 📄 Script Paneli (Source)
+
+-   .R, .Rmd gibi dosyaları düzenlemek için kullanılır
+
+-   Kodları yaz, kaydet, tekrar çalıştır
+
+-   Satır satır (`Ctrl + Enter`) ya da tüm dosya (`Ctrl + Shift + Enter`) çalıştırılabilir
+
+📝 **Not:** Script paneli projelerde en çok kullanılan bölümdür.
+
+## 🔎 Environment/History
+
+-   **Environment:** Tüm nesneler (veriler, fonksiyonlar) burada görünür
+
+-   **History:** Önceki komutların geçmişi
+
+-   Kullanıcılar buradan kodları tekrar çalıştırabilir ya da düzenleyebilir
+
+💡 **İpucu:** Environment panelinden nesneleri sağ tıklayıp kaldırabilirsin.
+
+## 🧰 Files / Plots / Packages / Help / Viewer
+
+-   **Files:** Klasör yapısı, dosya yönetimi
+
+-   **Plots:** Grafik çıktıları burada görüntülenir
+
+-   **Packages:** Kurulu paketler + yeni paket kurulumu
+
+-   **Help:** Fonksiyon açıklamaları, dökümantasyon
+
+-   **Viewer:** R Markdown, Quarto,HTML çıktıları ve web içerikleri görüntüleme
+
+💡 **İpucu:** `?mean` şeklinde yazarak fonksiyon yardımına ulaşabilirsin.
+
+## 🚀 Kısayollarla Verimli Çalışma
+
+| İşlem                  | Kısayol (Windows)    |
+|------------------------|----------------------|
+| Satır çalıştır         | Ctrl + Enter         |
+| Script dosyası oluştur | Ctrl + Shift + N     |
+| Yorum satırı           | Ctrl + Shift + C     |
+| Tüm Script'i çalıştır  | Ctrl + Shift + Enter |
+
+💡 **İpucu:** Bütün kısayollara ***RStudio → Tools → Keyboard Shortcuts Help*** menüsünden ulaşabilirsin. Ayrıca kendi kısayol şablonunu ***RStudio → Tools → Modify Keyboard Shortcuts*** menüsünden oluşturabilirsin.
+
+## 🧠 Akılda Kalması Gerekenler
+
+-   RStudio, R ile çalışmanın en iyi yoludur
+
+-   Paneller ve işlevleri iyi bilinmeli
+
+-   Yardım almak, kaynakları keşfetmek çok kolaydır
+
+📘 Daha fazla bilgi için: <https://posit.co> (RStudio'nun yeni adıyla sitesi)
+
+## 📢 Takip Etmeyi Unutma!
+
+📺 YouTube Kanalı: [**R Programlama ve İstatistik Akademisi**](https://www.youtube.com/@RistatistikAkademi)\
+📘 Kitap: [R Programlama](https://rprogramlama.netlify.app/)\
+📝 Blog: [A Statistician’s R Notebook](https://mfatihtuzen.netlify.app/)\
+🐙[GitHub Reposu](https://github.com/MFatihTuzen/r-istatistik-akademisi)

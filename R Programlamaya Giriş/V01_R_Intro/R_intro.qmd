@@ -59,9 +59,9 @@ execute:
 
 > "R ile veri değil, anlam anlatırsınız."
 
-## Kod ve Slaytlar
+## 📢 Takip Etmeyi Unutma!
 
-👉 Bu videoda kullanılan tüm materyaller GitHub’da:\
-<https://github.com/MFatihTuzen/r-istatistik-akademisi>
-
-> Sonraki video: **RStudio Arayüzü ve Proje Yönetimi**
+📺 YouTube Kanalı: [**R Programlama ve İstatistik Akademisi**](https://www.youtube.com/@RistatistikAkademi)\
+📘 Kitap: [R Programlama](https://rprogramlama.netlify.app/)\
+📝 Blog: [A Statistician’s R Notebook](https://mfatihtuzen.netlify.app/)\
+🐙[GitHub Reposu](https://github.com/MFatihTuzen/r-istatistik-akademisi)

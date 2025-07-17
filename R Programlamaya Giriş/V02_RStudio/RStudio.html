@@ -442,7 +442,7 @@
   <meta name="generator" content="quarto-1.6.39">
 
   <meta name="author" content="Dr. M. Fatih Tüzen">
-  <title>R Programlamaya Giriş</title>
+  <title>RStudio Arayüzü</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -987,7 +987,7 @@ margin-right: 0; }
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">R Programlamaya Giriş</h1>
+  <h1 class="title">RStudio Arayüzü</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -998,71 +998,105 @@ Dr. M. Fatih Tüzen
 </div>
 
 </section>
-<section id="r-programlama-hakkında" class="slide level2">
-<h2>R Programlama Hakkında</h2>
+<section id="rstudio-nedir" class="slide level2">
+<h2>🎯 RStudio Nedir?</h2>
 <ul>
-<li>Açık kaynak, istatistiksel ve bilimsel hesaplamalar için geliştirilmiş bir programlama dili.</li>
-<li>1993’te Ross Ihaka ve Robert Gentleman tarafından geliştirildi.</li>
-<li>CRAN (Comprehensive R Archive Network) üzerinden binlerce paket erişilebilir.</li>
-<li>Veri analizi, görselleştirme, istatistiksel modelleme, makine öğrenmesi gibi alanlarda yaygın kullanılır.</li>
-<li>Platform bağımsız: Windows, MacOS, Linux desteği.</li>
+<li><p>R dili için özel geliştirilmiş, güçlü bir <strong>IDE</strong> (Entegre Geliştirme Ortamı)</p></li>
+<li><p>R ile veri analizi, görselleştirme, raporlama gibi işlemleri kolaylaştırır</p></li>
+<li><p>Açık kaynak, ücretsiz, çok platformlu</p></li>
 </ul>
+<p>💡 <strong>İpucu:</strong> Başlangıç seviyesinde RStudio kullanmak kod yazmayı çok daha kolay hale getirir!</p>
 </section>
-<section id="r-ve-rstudio-bağlantıları" class="slide level2">
-<h2>R ve RStudio Bağlantıları</h2>
+<section id="rstudio-arayüzü" class="slide level2 scrollable">
+<h2>🧭 RStudio Arayüzü</h2>
+<p>RStudio 4 ana panelden oluşur:</p>
+<ol type="1">
+<li><p><strong>Console (Konsol):</strong> Komutların çalıştırıldığı alan</p></li>
+<li><p><strong>Source (Kaynak Kod):</strong> Betiklerin yazıldığı alan</p></li>
+<li><p><strong>Environment/History:</strong> Değişkenler, önceki komutlar</p></li>
+<li><p><strong>Files/Plots/Packages/Help/Viewer:</strong> Yardımcı sekmeler</p></li>
+</ol>
+<p>📌 Paneller arasında geçişler oldukça akıcıdır.</p>
+<p>💡 <strong>İpucu:</strong> <code>Ctrl + 1</code> (Console), <code>Ctrl + 2</code> (Script Paneli) ile hızlı geçiş yapabilirsin.</p>
+</section>
+<section id="konsol-paneli" class="slide level2">
+<h2>🛠️ Konsol Paneli</h2>
+<ul>
+<li><p>Direkt R komutlarını yazıp çalıştırma</p></li>
+<li><p>Hatalar ve çıktılar burada görüntülenir</p></li>
+<li><p>Kısa hesaplamalar ve testler için idealdir.</p></li>
+<li><p><code>&gt;</code> sembolü yeni komut bekler.</p></li>
+<li><p>Örn: <code>2 + 2</code> yaz → Enter’a bas → 4 çıktısı gelir</p></li>
+</ul>
+<p>💡 <strong>İpucu:</strong> Yukarı/ aşağı ok ile önceki komutlar arasında gezinebilirsin.</p>
+</section>
+<section id="script-paneli-source" class="slide level2">
+<h2>📄 Script Paneli (Source)</h2>
+<ul>
+<li><p>.R, .Rmd gibi dosyaları düzenlemek için kullanılır</p></li>
+<li><p>Kodları yaz, kaydet, tekrar çalıştır</p></li>
+<li><p>Satır satır (<code>Ctrl + Enter</code>) ya da tüm dosya (<code>Ctrl + Shift + Enter</code>) çalıştırılabilir</p></li>
+</ul>
+<p>📝 <strong>Not:</strong> Script paneli projelerde en çok kullanılan bölümdür.</p>
+</section>
+<section id="environmenthistory" class="slide level2">
+<h2>🔎 Environment/History</h2>
+<ul>
+<li><p><strong>Environment:</strong> Tüm nesneler (veriler, fonksiyonlar) burada görünür</p></li>
+<li><p><strong>History:</strong> Önceki komutların geçmişi</p></li>
+<li><p>Kullanıcılar buradan kodları tekrar çalıştırabilir ya da düzenleyebilir</p></li>
+</ul>
+<p>💡 <strong>İpucu:</strong> Environment panelinden nesneleri sağ tıklayıp kaldırabilirsin.</p>
+</section>
+<section id="files-plots-packages-help-viewer" class="slide level2">
+<h2>🧰 Files / Plots / Packages / Help / Viewer</h2>
+<ul>
+<li><p><strong>Files:</strong> Klasör yapısı, dosya yönetimi</p></li>
+<li><p><strong>Plots:</strong> Grafik çıktıları burada görüntülenir</p></li>
+<li><p><strong>Packages:</strong> Kurulu paketler + yeni paket kurulumu</p></li>
+<li><p><strong>Help:</strong> Fonksiyon açıklamaları, dökümantasyon</p></li>
+<li><p><strong>Viewer:</strong> R Markdown, Quarto,HTML çıktıları ve web içerikleri görüntüleme</p></li>
+</ul>
+<p>💡 <strong>İpucu:</strong> <code>?mean</code> şeklinde yazarak fonksiyon yardımına ulaşabilirsin.</p>
+</section>
+<section id="kısayollarla-verimli-çalışma" class="slide level2">
+<h2>🚀 Kısayollarla Verimli Çalışma</h2>
 <table class="caption-top">
 <thead>
 <tr class="header">
-<th>Yazılım</th>
-<th>URL</th>
-<th>Açıklama</th>
+<th>İşlem</th>
+<th>Kısayol (Windows)</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>R Kurulumu</strong></td>
-<td><a href="https://cran.r-project.org" class="uri">https://cran.r-project.org</a></td>
-<td>Ana R dili paketi</td>
+<td>Satır çalıştır</td>
+<td>Ctrl + Enter</td>
 </tr>
 <tr class="even">
-<td><strong>RStudio Desktop</strong></td>
-<td><a href="https://posit.co/download/rstudio-desktop" class="uri">https://posit.co/download/rstudio-desktop</a></td>
-<td>Kullanımı kolay bir R IDE’si</td>
+<td>Script dosyası oluştur</td>
+<td>Ctrl + Shift + N</td>
 </tr>
 <tr class="odd">
-<td><strong>RStudio Server</strong></td>
-<td><a href="https://posit.co/download/rstudio-server" class="uri">https://posit.co/download/rstudio-server</a></td>
-<td>Tarayıcı üzerinden erişilebilir sunucu ortamı</td>
+<td>Yorum satırı</td>
+<td>Ctrl + Shift + C</td>
+</tr>
+<tr class="even">
+<td>Tüm Script’i çalıştır</td>
+<td>Ctrl + Shift + Enter</td>
 </tr>
 </tbody>
 </table>
+<p>💡 <strong>İpucu:</strong> Bütün kısayollara <strong><em>RStudio → Tools → Keyboard Shortcuts Help</em></strong> menüsünden ulaşabilirsin. Ayrıca kendi kısayol şablonunu <strong><em>RStudio → Tools → Modify Keyboard Shortcuts</em></strong> menüsünden oluşturabilirsin.</p>
 </section>
-<section id="öğrenme-kaynakları" class="slide level2">
-<h2>Öğrenme Kaynakları</h2>
+<section id="akılda-kalması-gerekenler" class="slide level2">
+<h2>🧠 Akılda Kalması Gerekenler</h2>
 <ul>
-<li><a href="https://cran.r-project.org/manuals.html"><strong>Resmi R Belgeleri</strong></a></li>
-<li><a href="https://r4ds.hadley.nz"><strong>R for Data Science</strong></a></li>
-<li><a href="https://cran.r-project.org/web/views/"><strong>CRAN Task Views</strong></a> — Konu bazlı paket rehberleri</li>
-<li><a href="https://www.tidyverse.org"><strong>Tidyverse</strong></a></li>
-<li><a href="https://www.bigbookofr.com/"><strong>Big Book of R</strong></a></li>
-<li><a href="https://www.r-bloggers.com"><strong>R-bloggers</strong></a></li>
-<li><a href="https://rprogramlama.netlify.app"><strong>R Programlama (TR)</strong></a></li>
-<li><a href="https://mfatihtuzen.netlify.app/"><strong>A Statistician’s R Notebook</strong></a></li>
+<li><p>RStudio, R ile çalışmanın en iyi yoludur</p></li>
+<li><p>Paneller ve işlevleri iyi bilinmeli</p></li>
+<li><p>Yardım almak, kaynakları keşfetmek çok kolaydır</p></li>
 </ul>
-</section>
-<section id="r-ile-neler-yapılabilir" class="slide level2">
-<h2>R ile Neler Yapılabilir?</h2>
-<ul>
-<li>📊 Veri Analizi</li>
-<li>📈 Veri Görselleştirme</li>
-<li>🤖 Makine Öğrenmesi</li>
-<li>🧮 Regresyon, hipotez testleri, zaman serisi</li>
-<li>🌐 Shiny ile etkileşimli web uygulamaları</li>
-<li>📄 Quarto ile otomatik raporlama (PDF, HTML, slayt)</li>
-</ul>
-<blockquote>
-<p>“R ile veri değil, anlam anlatırsınız.”</p>
-</blockquote>
+<p>📘 Daha fazla bilgi için: <a href="https://posit.co" class="uri">https://posit.co</a> (RStudio’nun yeni adıyla sitesi)</p>
 </section>
 <section id="takip-etmeyi-unutma" class="slide level2">
 <h2>📢 Takip Etmeyi Unutma!</h2>
