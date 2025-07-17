@@ -70,7 +70,7 @@ Tüm katkılar sade, açık ve anlaşılır olduğu sürece memnuniyetle karşı
 -   Kod dosyaları: [MIT Lisansı](https://opensource.org/licenses/MIT)
 -   Slaytlar, görseller ve açıklamalar: [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 
-📄 Lisans bilgileri için bkz: [LICENSE.md](LICENSE.md)
+📄 Lisans bilgileri için bkz: [LICENSE](LICENSE)
 
 > 📌 Kısaca: Kaynak gösterdiğin sürece içerikleri serbestçe kullanabilir ve paylaşabilirsin.
 
