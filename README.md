@@ -1,6 +1,6 @@
 <p align="center">
 
-![](images/R%20Programlama%20ve%20İstatistik%20Akademisi_banner.png){width="80%"}
+![](images/R%20Programlama%20ve%20İstatistik%20Akademisi_banner.png)
 
 </p>
 
@@ -11,7 +11,15 @@
 🎓 **R ile veri analizi öğrenmenin sade, sistemli ve pratik yolu.**\
 Bu depo, [YouTube kanalımızda](https://youtube.com/@RistatistikAkademi) yayımlanan R derslerine ait slaytları, örnek kodları, alıştırmaları ve diğer yardımcı materyalleri içerir.
 
-Her video için özel bir klasörde: - 🎞️ Sunum slaytları (`.qmd`) - 💻 Uygulamalı R script dosyası (`.R`) - 📄 Alıştırmalar ve çözümleri (varsa) - 📝 Video açıklama metni (YouTube açıklamasıyla aynı) bulunur.
+Her video için özel bir klasörde:
+
+-   🎞️ Sunum slaytları (`.qmd`)
+
+-   💻 Uygulamalı R script dosyası (`.R`)
+
+-   📄 Alıştırmalar ve çözümleri (varsa)
+
+-   📝 Video açıklama metni (YouTube açıklamasıyla aynı) bulunur.
 
 ------------------------------------------------------------------------
 
@@ -39,6 +47,8 @@ Video dizileri tematik oynatma listeleri olarak yapılandırılmıştır:
 -   📂 `Tarih ve Zaman İşlemleri`\
     `Sys.Date()`, `as.Date()`, `difftime()` ve daha fazlası
 
+-   ............
+
 > 🔜 Yeni konular eklendikçe bu depo da güncellenecek.
 
 ------------------------------------------------------------------------
@@ -57,7 +67,7 @@ Tüm katkılar sade, açık ve anlaşılır olduğu sürece memnuniyetle karşı
 
 ## ⚖️ Lisanslama
 
--   Kod dosyaları: [MIT Lisansı](https://opensource.org/licenses/MIT)\
+-   Kod dosyaları: [MIT Lisansı](https://opensource.org/licenses/MIT)
 -   Slaytlar, görseller ve açıklamalar: [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 
 > 📌 Kısaca: Kaynak gösterdiğin sürece içerikleri serbestçe kullanabilir ve paylaşabilirsin.
@@ -66,13 +76,14 @@ Tüm katkılar sade, açık ve anlaşılır olduğu sürece memnuniyetle karşı
 
 ## 📡 İletişim ve Diğer Kaynaklar
 
-| Kaynak            | Bağlantı                                                                 |
+| Kaynak            | Bağlantı                                                                  |
 |--------------------------------|----------------------------------------|
-| 📺 YouTube Kanalı | [\@RistatistikAkademi](https://youtube.com/@RistatistikAkademi)          |
-| 📝 Blog Sayfam    | [A Statistician’s R Notebook](https://mfatihtuzen.netlify.app/)          |
-| 📘 Kitap          | [R Programlama](https://rprogramlama.netlify.app/)                       |
-| 🐙 GitHub         | [MFatihTuzen](https://github.com/MFatihTuzen)                            |
-| 💼 LinkedIn       | [Dr. M. Fatih Tüzen](https://www.linkedin.com/in/dr-m-fatih-t-2b2a4328/) |
+| 📺 YouTube Kanalı | [\@RistatistikAkademi](https://youtube.com/@RistatistikAkademi)           |
+| 📝 Blog Sayfam    | [A Statistician’s R Notebook](https://mfatihtuzen.netlify.app/)           |
+| 📘 Kitap          | [R Programlama](https://rprogramlama.netlify.app/)                        |
+| 🐙 GitHub         | <https://github.com/MFatihTuzen>                                          |
+| 💼 LinkedIn       | [Dr. M. Fatih Tüzen](https://www.linkedin.com/in/dr-m-fatih-t-2b2a4328/)  |
+| ✍️ Medium         | [https://medium.com/\@Fatih.Tuzen](https://medium.com/@Fatih.Tuzen){.uri} |
 
 ------------------------------------------------------------------------
 
