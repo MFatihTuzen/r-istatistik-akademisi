@@ -1,44 +1,80 @@
+<p align="center">
 
-*Her yeni video ile birlikte ilgili klasöre*  
-- dersin `.R` / `.qmd` dosyası  
-- varsa alıştırma PDF’i ve çözümü  
-- kısa açıklama (`README.md` alt başlığı)  
-ekleyeceğim.
+![](images/R%20Programlama%20ve%20İstatistik%20Akademisi_banner.png){width="80%"}
 
----
+</p>
 
-## Nasıl Kullanılır?
+------------------------------------------------------------------------
 
-1. İlgilendiğiniz derse ait klasöre gidin.  
-2. `video_script.R` dosyasını indirin veya kopyalayın.  
-3. **RStudio**’da çalıştırarak anlatımı adım adım takip edin.  
-4. Alıştırma varsa önce _kendi çözümünüzü_ deneyin, sonra **_cozum.R_** dosyasıyla karşılaştırın.
+# 📘 R Programlama ve İstatistik Akademisi
 
----
+🎓 **R ile veri analizi öğrenmenin sade, sistemli ve pratik yolu.**\
+Bu depo, [YouTube kanalımızda](https://youtube.com/@RistatistikAkademi) yayımlanan R derslerine ait slaytları, örnek kodları, alıştırmaları ve diğer yardımcı materyalleri içerir.
 
-## Katkı ve Geri Bildirim
+Her video için özel bir klasörde: - 🎞️ Sunum slaytları (`.qmd`) - 💻 Uygulamalı R script dosyası (`.R`) - 📄 Alıştırmalar ve çözümleri (varsa) - 📝 Video açıklama metni (YouTube açıklamasıyla aynı) bulunur.
 
-- **Hata buldunuz mu?**  
-  `Issues` sekmesinden başlık açın veya mevcut başlığa yorum ekleyin.  
-- **Geliştirme öneriniz var mı?**  
-  Mini örnek, veri seti veya açıklama eklemek için _pull request_ gönderebilirsiniz. Açık, temiz ve anlaşılır katkılar memnuniyetle birleşir.
+------------------------------------------------------------------------
 
----
+## 🚀 Başlarken
 
-## Lisans
+1.  [Giriş oynatma listesi](https://www.youtube.com/@RistatistikAkademi) ile başlayın.
+2.  İlgilendiğiniz video klasörünü açın.
+3.  Kod dosyasını `.R` veya `.qmd` olarak çalıştırarak konuyu uygulamalı şekilde öğrenin.
+4.  Alıştırmalar varsa önce kendiniz deneyin, sonra çözümle karşılaştırın.
 
-Bu depodaki kod dosyaları **MIT Lisansı** ile, belgeler ve görseller ise **CC-BY 4.0** lisansı ile paylaşılır.  
-(Basitleştirilmiş hâliyle: Kaynak gösterdiğiniz sürece kullanabilir, uyarlayabilir ve paylaşabilirsiniz.)
+> 📁 Örnek yol: `R Programlamaya Giriş/V02_RStudio/`
 
----
+------------------------------------------------------------------------
 
-## İletişim
+## 🔄 Konular & Yapı
 
-| Kanal            | Bağlantı |
-|------------------|----------|
-| YouTube          | <https://youtube.com/@RistatistikAkademi> |
-| LinkedIn         | <https://www.linkedin.com/in/dr-m-fatih-t-2b2a4328/> |
-| Medium           | <https://medium.com/@Fatih.Tuzen/> |
-| Blog             | <https://mfatihtuzen.netlify.app/> |
+Video dizileri tematik oynatma listeleri olarak yapılandırılmıştır:
 
-> Kodda, ekranda ve yorumlarda buluşmak dileğiyle. İyi çalışmalar! ✨
+-   📂 `R Programlamaya Giriş`\
+    Temel söz dizimi, veri yapıları, kontrol akışı, fonksiyonlar...
+
+-   📂 `Temel Fonksiyonlar`\
+    R'de sık kullanılan pratik fonksiyonlar: `seq()`, `rep()`, `which()` vb.
+
+-   📂 `Tarih ve Zaman İşlemleri`\
+    `Sys.Date()`, `as.Date()`, `difftime()` ve daha fazlası
+
+> 🔜 Yeni konular eklendikçe bu depo da güncellenecek.
+
+------------------------------------------------------------------------
+
+## 🤝 Katkıda Bulunmak
+
+-   💡 Geliştirme fikrin mi var?\
+    Yeni örnek, açıklama veya düzeltme için *pull request* gönderebilirsin.
+
+-   🐛 Hata mı buldun?\
+    `Issues` sekmesinden bildirebilirsin.
+
+Tüm katkılar sade, açık ve anlaşılır olduğu sürece memnuniyetle karşılanır.
+
+------------------------------------------------------------------------
+
+## ⚖️ Lisanslama
+
+-   Kod dosyaları: [MIT Lisansı](https://opensource.org/licenses/MIT)\
+-   Slaytlar, görseller ve açıklamalar: [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+
+> 📌 Kısaca: Kaynak gösterdiğin sürece içerikleri serbestçe kullanabilir ve paylaşabilirsin.
+
+------------------------------------------------------------------------
+
+## 📡 İletişim ve Diğer Kaynaklar
+
+| Kaynak            | Bağlantı                                                                 |
+|--------------------------------|----------------------------------------|
+| 📺 YouTube Kanalı | [\@RistatistikAkademi](https://youtube.com/@RistatistikAkademi)          |
+| 📝 Blog Sayfam    | [A Statistician’s R Notebook](https://mfatihtuzen.netlify.app/)          |
+| 📘 Kitap          | [R Programlama](https://rprogramlama.netlify.app/)                       |
+| 🐙 GitHub         | [MFatihTuzen](https://github.com/MFatihTuzen)                            |
+| 💼 LinkedIn       | [Dr. M. Fatih Tüzen](https://www.linkedin.com/in/dr-m-fatih-t-2b2a4328/) |
+
+------------------------------------------------------------------------
+
+> 🎤 Öğrenmenin en etkili yolu, uygulayarak ve paylaşarak öğrenmektir.\
+> Kanalda ve burada görüşmek üzere! 💙
