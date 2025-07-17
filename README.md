@@ -78,14 +78,14 @@ Tüm katkılar sade, açık ve anlaşılır olduğu sürece memnuniyetle karşı
 
 ## 📡 İletişim ve Diğer Kaynaklar
 
-| Kaynak            | Bağlantı                                                                  |
-|--------------------------------|----------------------------------------|
-| 📺 YouTube Kanalı | [\@RistatistikAkademi](https://youtube.com/@RistatistikAkademi)           |
-| 📝 Blog Sayfam    | [A Statistician’s R Notebook](https://mfatihtuzen.netlify.app/)           |
-| 📘 Kitap          | [R Programlama](https://rprogramlama.netlify.app/)                        |
-| 🐙 GitHub         | <https://github.com/MFatihTuzen>                                          |
-| 💼 LinkedIn       | [Dr. M. Fatih Tüzen](https://www.linkedin.com/in/dr-m-fatih-t-2b2a4328/)  |
-| ✍️ Medium         | [https://medium.com/\@Fatih.Tuzen](https://medium.com/@Fatih.Tuzen){.uri} |
+| Kaynak            | Bağlantı                                                                 |
+|-------------------|--------------------------------------------------------------------------|
+| 📺 YouTube Kanalı | [\@RistatistikAkademi](https://youtube.com/@RistatistikAkademi)          |
+| 📝 Blog Sayfam    | [A Statistician’s R Notebook](https://mfatihtuzen.netlify.app/)          |
+| 📘 Kitap          | [R Programlama](https://rprogramlama.netlify.app/)                       |
+| 🐙 GitHub         | <https://github.com/MFatihTuzen>                                         |
+| 💼 LinkedIn       | [Dr. M. Fatih Tüzen](https://www.linkedin.com/in/dr-m-fatih-t-2b2a4328/) |
+| ✍️ Medium         | [https://medium.com/\@Fatih.Tuzen](https://medium.com/@Fatih.Tuzen)      |
 
 ------------------------------------------------------------------------
 
