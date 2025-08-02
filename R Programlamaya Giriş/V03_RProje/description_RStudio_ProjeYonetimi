@@ -1,0 +1,30 @@
+# 🎯 RStudio’da Proje Yönetimi Neden Önemli?
+
+Bu videoda, **RStudio Proje Yapısı**nın neden önemli olduğunu, nasıl oluşturulacağını ve bir R projesinde dosya-yol yönetiminin nasıl yapılması gerektiğini anlatıyoruz.
+
+🔍 Ele Aldığımız Konular:
+- R projelerinin amacı ve avantajları
+- RStudio ile proje oluşturma adımları
+- İyi bir klasör yapısı nasıl kurulur?
+- `getwd()` ve `setwd()` fonksiyonları nasıl kullanılır?
+- **Relative vs Absolute Path** farkı nedir?
+- Çalışma dizini kavramı
+- Proje yönetiminde sık yapılan hatalar
+
+🧠 Video sonunda, tüm analizlerinizi tek bir klasör yapısında yönetebilir, **tekrarlanabilir ve taşınabilir** projeler oluşturmayı öğrenmiş olacaksınız.
+
+---
+
+🔗 Bağlantılar & Kaynaklar  
+📘 Kitap: R Programlama  
+🔗 https://rprogramlama.netlify.app/
+
+📝 Blog sayfam: A Statistician’s R Notebook  
+🔗 https://mfatihtuzen.netlify.app/
+
+🐙 GitHub projesi: R Programlama ve İstatistik Akademisi  
+🔗 https://github.com/MFatihTuzen/r-istatistik-akademisi
+
+---
+
+🎬 Kanalımıza abone olmayı ve yorum bırakmayı unutmayın!  
