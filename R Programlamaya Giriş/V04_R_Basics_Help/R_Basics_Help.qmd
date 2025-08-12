@@ -43,7 +43,7 @@ y = x+ 3  # y değişkeni, x + 3
 💡 **İpucu:** Kod okuma kolaylığı için `<-` tercih et.\
 ⌨️ **Kısayol:**
 
--    **Windows / Linux:** `Alt + -`
+-   **Windows / Linux:** `Alt + -`
 
 -   **Mac:** `Option + -`
 
@@ -51,7 +51,7 @@ y = x+ 3  # y değişkeni, x + 3
 
 ### 🐍 **snake_case**
 
--    Kelimeler **küçük harf** ile yazılır. Kelimeler arasına **alt çizgi (`_`)** konur.
+-   Kelimeler **küçük harf** ile yazılır. Kelimeler arasına **alt çizgi (`_`)** konur.
 
 ```{r}
 #| eval: false
@@ -63,7 +63,7 @@ ortalama_maas <- mean(maas)
 
 ### 🐫 **camelCase**
 
--    İlk kelime **küçük harf** ile başlar, sonrakilerin **ilk harfi büyük** olur.
+-   İlk kelime **küçük harf** ile başlar, sonrakilerin **ilk harfi büyük** olur.
 
 ```{r}
 #| eval: false
@@ -97,7 +97,7 @@ R doğrudan aritmetik hesaplar için kullanabilmektedir. Tüm işlemler **konsol
 
 #### 💡 **İpucu**
 
--    R **öncelik kurallarını** (parantez, çarpma/bölme, toplama/çıkarma) matematikteki gibi uygular.
+-   R **öncelik kurallarını** (parantez, çarpma/bölme, toplama/çıkarma) matematikteki gibi uygular.
 
 ```{r}
 #| eval: false
@@ -111,7 +111,7 @@ R doğrudan aritmetik hesaplar için kullanabilmektedir. Tüm işlemler **konsol
 
 ## 📝 Yorum Satırları: Neden / Ne Zaman?
 
--    `#` ile başlayan satırlar çalıştırılmaz
+-   `#` ile başlayan satırlar çalıştırılmaz
 
 -   Kodun ne yaptığını açıklamak için kullanılır
 
@@ -152,7 +152,7 @@ x_mean <- mean(df$x)
 
 ### ⏸ Geçici Kod Kapama
 
--    Bir satırı çalıştırmamak için başına `#` ekle.
+-   Bir satırı çalıştırmamak için başına `#` ekle.
 
 -   Tüm satırları geçici olarak kapatmak için toplu yorum kısayolunu kullan.
 
@@ -211,7 +211,7 @@ x == 2 | x == 5  # TRUE
 
 ### 🔹 Ek İpuçları
 
--    📖 **Örnekler:** Yardım sayfasının sonunda bulunur.
+-   📖 **Örnekler:** Yardım sayfasının sonunda bulunur.
 
 ```{r}
 #| eval: false
@@ -235,13 +235,30 @@ help.search("anova")
 💬 **Not:** Yardım sayfaları R’nin resmi belgelerinden geldiği için oldukça teknik olabilir.\
 Yeni başlayanlar için kısa örnekler ve topluluk kaynakları (R-bloggers, Stack Overflow) da faydalıdır.
 
+## 🎯 Bilinmesi Gereken Temel Noktalar
+
+-   💡 **Büyük/Küçük Harf Duyarlılığı**\
+    `x` ve `X` **farklı** nesnelerdir. Yanlış yazım hatalarını önlemek için dikkat edin.
+
+-   💡 **Nesne Adlarında Türkçe Karakterlerden Kaçının**\
+    `ö, ü, ğ, ç` gibi karakterler bazı ortamlarda sorun çıkarabilir.
+
+-   💡 **Boşluk Kullanmayın**\
+    `my data` yerine `my_data` veya `myData` gibi isimlendirmeler kullanın.
+
+-   💡 **Çalışma Dizininizi Kontrol Edin**\
+    Kodun başında `getwd()` ile doğru dizinde olduğunuzdan emin olun.
+
+-   💡 **R Script Kaydetmeyi Unutmayın**\
+    Script üzerinde çalışırken sık sık `Ctrl + S` (Windows) veya `Cmd + S` (Mac) ile kaydedin.
+
 ## 📝 Özet
 
 📌 **Bu bölümde neler öğrendik?**
 
--    R’nin temel **söz dizimi** kuralları
+-   R’nin temel **söz dizimi** kuralları
 
--    `<-` ile **atama işlemleri** ve kısayolu
+-   `<-` ile **atama işlemleri** ve kısayolu
 
 -   **Yorum satırları** (`#`) ile kodu açıklama
 
