@@ -1,0 +1,117 @@
+---
+title: "Veri Tipleri"
+author: "Dr. M. Fatih Tüzen"
+format:
+  revealjs:
+    theme: white
+    slide-number: true
+    self-contained: true
+    footer: 📺 R Programlama ve İstatistik Akademisi
+    scrollable: true
+execute:
+  echo: true
+  eval: true
+  warning: false
+  message: false
+---
+
+## Giriş: R’de Veri Tiplerinin Önemi
+
+-   Her veri bir **tip** ile saklanır.
+-   Doğru veri tipi → doğru analiz, daha hızlı hesaplama, daha az hata.
+-   Yanlış veri tipi → yanlış sonuçlar, beklenmedik hatalar.
+-   Temel kontrol fonksiyonları: `typeof()`, `class()`, `mode()`
+
+```{r}
+
+x <- 3.14
+typeof(x)   # "double"
+class(x)    # "numeric"
+mode(x)     # "numeric"
+
+y <- "3.14"
+typeof(y)   # "character"
+class(y)    # "character"
+mode(y)     # "character"
+```
+
+### 💡 İpucu
+
+-   `typeof()` → ham tip, `class()` → nesne türü.
+
+-   Gerçek depolama tipini öğrenmek için **önce `typeof()`**.
+
+## Numeric (Double) ve Integer
+
+-   **numeric (double)**: Varsayılan sayısal tip; hem ondalıklı hem tam sayılar **64-bit çift hassasiyetli (double precision)** olarak tutulur.
+-   **integer**: **32-bit signed** (32 bit işaretli) tam sayı tipidir; `L` eklenerek açıkça atanır (`5L` gibi).
+
+> **32-bit signed nedir?** 32 bit, bellekte bu değeri saklamak için kullanılan alan miktarıdır (4 byte). "Signed" ifadesi pozitif ve negatif sayıları gösterebildiğini belirtir.\
+> Bu tipte saklanabilecek değer aralığı: $-2^{31}$ ile $2^{31} - 1$ arasındadır.
+
+### 💡 İpucu
+
+R’de yazdığınız `5` varsayılan olarak **double**’dır. Integer istiyorsanız sonuna **`L`** ekleyin: `42L`.
+
+### Hassasiyet Farkı (Floating-Point)
+
+**Neden böyle?** Double tipler sayıları **ikilik (binary)** tabanda saklar. 0.1 ve 0.2 gibi bazı ondalık sayılar ikilikte tam olarak ifade edilemez; bu yüzden toplandığında 0.30000000000000004 gibi bir değer oluşur.\
+
+Bu nedenle eşitlik karşılaştırmalarında `all.equal()` veya tolerans kullanılır.
+
+```{r}
+0.1 + 0.2 == 0.3           # çoğu zaman FALSE
+all.equal(0.1 + 0.2, 0.3)  # TRUE (tolerans ile)
+```
+
+### ⚠️ Dikkat
+
+-   Binary temsil nedeniyle bazı ondalıklar tam ifade edilemez.
+
+-   Kesin eşitlik yerine `all.equal()` gibi yöntemleri tercih edin.
+
+### Dönüşüm Tuzakları
+
+```{r}
+as.integer(3.9)    # 3  (kırpma; yuvarlama değil)
+as.numeric(TRUE)   # 1
+as.numeric(FALSE)  # 0
+```
+
+::: callout-note
+## 🔍 Not
+
+`as.integer(3.9)` → `3`; bu **yuvarlama değil**, ondalık kısmın **atılmasıdır**. Yuvarlama için `round(3.9)`, aşağı yuvarlama için `floor()`, yukarı yuvarlama için `ceiling()` kullanın.
+:::
+
+### Integer’daki `L` Nedir?
+
+-   `L` son eki, sayının **integer literal** (tamsayı sabiti) olarak oluşturulmasını sağlar: `5L`, `-12L`.
+
+-   R’de integer’lar 32-bit signed tipindedir: aralık $-2^{31}$ ile $2^{31} - 1$.
+
+-   Double ise çok daha geniş aralıkta çalışır ve $2^{53}$’e kadar tam sayıları hatasız temsil edebilir.
+
+### 🧠 İpucu
+
+-    Büyük tam sayı dizileri ve bellek hassasiyeti gereken durumlarda `integer` kullanmak avantajlı olabilir.
+
+-   Ancak R ekosisteminde çoğu fonksiyon **double** ile optimize edilmiştir; “erken optimizasyon” yapmadan önce ölçüm yapın (`object.size()` gibi).
+
+### Bellek Kıyaslaması
+
+```{r}
+x_int <- 1L:1e6               # integer vektör
+x_num <- as.numeric(1:1e6)    # double vektör
+
+typeof(x_int); object.size(x_int)
+typeof(x_num); object.size(x_num)
+
+```
+
+## 📢 Takip Etmeyi Unutma!
+
+📺 YouTube Kanalı: [**R Programlama ve İstatistik Akademisi**](https://www.youtube.com/@RistatistikAkademi)\
+📘 Kitap: [R Programlama](https://rprogramlama.netlify.app/)\
+📝 Blog: [A Statistician’s R Notebook](https://mfatihtuzen.netlify.app/)\
+🐙 [GitHub Reposu](https://github.com/MFatihTuzen/r-istatistik-akademisi)
