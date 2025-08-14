@@ -442,7 +442,7 @@
   <meta name="generator" content="quarto-1.6.39">
 
   <meta name="author" content="Dr. M. Fatih Tüzen">
-  <title>Veri Tipleri</title>
+  <title>R Prgoramlama’da Veri Tipleri</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -1052,7 +1052,7 @@ margin-right: 0; }
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Veri Tipleri</h1>
+  <h1 class="title">R Prgoramlama’da Veri Tipleri</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -1101,8 +1101,8 @@ Dr. M. Fatih Tüzen
 </div>
 <h3 id="ipucu">💡 İpucu</h3>
 <ul>
-<li><p><code>typeof()</code> → ham tip, <code>class()</code> → nesne türü.</p></li>
-<li><p>Gerçek depolama tipini öğrenmek için <strong>önce <code>typeof()</code></strong>.</p></li>
+<li><code>typeof()</code> → ham tip, <code>class()</code> → nesne türü.</li>
+<li>Gerçek depolama tipini öğrenmek için <strong>önce <code>typeof()</code></strong>.</li>
 </ul>
 </section>
 <section id="numeric-double-ve-integer" class="slide level2">
@@ -1133,8 +1133,8 @@ Bu tipte saklanabilecek değer aralığı: <span class="math inline">\(-2^{31}\)
 </div>
 <h3 id="dikkat">⚠️ Dikkat</h3>
 <ul>
-<li><p>Binary temsil nedeniyle bazı ondalıklar tam ifade edilemez.</p></li>
-<li><p>Kesin eşitlik yerine <code>all.equal()</code> gibi yöntemleri tercih edin.</p></li>
+<li>Binary temsil nedeniyle bazı ondalıklar tam ifade edilemez.</li>
+<li>Kesin eşitlik yerine <code>all.equal()</code> gibi yöntemleri tercih edin.</li>
 </ul>
 <h3 id="dönüşüm-tuzakları">Dönüşüm Tuzakları</h3>
 <div class="cell">
@@ -1166,14 +1166,14 @@ Bu tipte saklanabilecek değer aralığı: <span class="math inline">\(-2^{31}\)
 </div>
 <h3 id="integerdaki-l-nedir">Integer’daki <code>L</code> Nedir?</h3>
 <ul>
-<li><p><code>L</code> son eki, sayının <strong>integer literal</strong> (tamsayı sabiti) olarak oluşturulmasını sağlar: <code>5L</code>, <code>-12L</code>.</p></li>
-<li><p>R’de integer’lar 32-bit signed tipindedir: aralık <span class="math inline">\(-2^{31}\)</span> ile <span class="math inline">\(2^{31} - 1\)</span>.</p></li>
-<li><p>Double ise çok daha geniş aralıkta çalışır ve <span class="math inline">\(2^{53}\)</span>’e kadar tam sayıları hatasız temsil edebilir.</p></li>
+<li><code>L</code> son eki, sayının <strong>integer literal</strong> (tamsayı sabiti) olarak oluşturulmasını sağlar: <code>5L</code>, <code>-12L</code>.</li>
+<li>R’de integer’lar 32-bit signed tipindedir: aralık <span class="math inline">\(-2^{31}\)</span> ile <span class="math inline">\(2^{31} - 1\)</span>.</li>
+<li>Double ise çok daha geniş aralıkta çalışır ve <span class="math inline">\(2^{53}\)</span>’e kadar tam sayıları hatasız temsil edebilir.</li>
 </ul>
 <h3 id="ipucu-2">🧠 İpucu</h3>
 <ul>
-<li><p>Büyük tam sayı dizileri ve bellek hassasiyeti gereken durumlarda <code>integer</code> kullanmak avantajlı olabilir.</p></li>
-<li><p>Ancak R ekosisteminde çoğu fonksiyon <strong>double</strong> ile optimize edilmiştir; “erken optimizasyon” yapmadan önce ölçüm yapın (<code>object.size()</code> gibi).</p></li>
+<li>Büyük tam sayı dizileri ve bellek hassasiyeti gereken durumlarda <code>integer</code> kullanmak avantajlı olabilir.</li>
+<li>Ancak R ekosisteminde çoğu fonksiyon <strong>double</strong> ile optimize edilmiştir; “erken optimizasyon” yapmadan önce ölçüm yapın (<code>object.size()</code> gibi).</li>
 </ul>
 <h3 id="bellek-kıyaslaması">Bellek Kıyaslaması</h3>
 <div class="cell">
@@ -1195,6 +1195,242 @@ Bu tipte saklanabilecek değer aralığı: <span class="math inline">\(-2^{31}\)
 <pre><code>8000048 bytes</code></pre>
 </div>
 </div>
+</section>
+<section id="character" class="slide level2">
+<h2>Character</h2>
+<ul>
+<li>Metin veya dize (string) verilerini saklamak için kullanılır.</li>
+<li>Tek (<code>&#39; &#39;</code>) veya çift (<code>&quot; &quot;</code>) tırnak ile tanımlanır.</li>
+<li>Sayısal işlemlerde kullanılamaz.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href></a>x <span class="ot">&lt;-</span> <span class="st">&quot;Fatih&quot;</span></span>
+<span id="cb29-2"><a href></a>y <span class="ot">&lt;-</span> <span class="st">&#39;R Programlama&#39;</span></span>
+<span id="cb29-3"><a href></a></span>
+<span id="cb29-4"><a href></a><span class="fu">typeof</span>(x)   <span class="co"># &quot;character&quot;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] &quot;character&quot;</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href></a><span class="fu">class</span>(x)    <span class="co"># &quot;character&quot;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] &quot;character&quot;</code></pre>
+</div>
+</div>
+<h3 id="özellikler">Özellikler</h3>
+<ul>
+<li>Karakter vektörleri yalnızca metin değerleri saklar.</li>
+<li>Vektör içindeki tüm öğeler aynı tiptedir (karakter).</li>
+<li>Tür kontrolü: <code>typeof()</code>, <code>class()</code>.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href></a>cities <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Ankara&quot;</span>, <span class="st">&quot;İzmir&quot;</span>, <span class="st">&quot;İstanbul&quot;</span>)</span>
+<span id="cb33-2"><a href></a><span class="fu">typeof</span>(cities)  <span class="co"># &quot;character&quot;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] &quot;character&quot;</code></pre>
+</div>
+</div>
+<h3 id="faktör-ile-farkı-kısa">Faktör ile Farkı (Kısa)</h3>
+<ul>
+<li><strong>Character</strong>: Metin olarak saklar.</li>
+<li><strong>Factor</strong>: Kategorik veriyi seviye (level) bilgisiyle saklar.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href></a>city_char <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Ankara&quot;</span>, <span class="st">&quot;İzmir&quot;</span>)</span>
+<span id="cb35-2"><a href></a>city_fac  <span class="ot">&lt;-</span> <span class="fu">factor</span>(city_char)</span>
+<span id="cb35-3"><a href></a></span>
+<span id="cb35-4"><a href></a><span class="fu">typeof</span>(city_char)  <span class="co"># &quot;character&quot;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] &quot;character&quot;</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href></a><span class="fu">typeof</span>(city_fac)   <span class="co"># &quot;integer&quot;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] &quot;integer&quot;</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href></a><span class="fu">class</span>(city_fac)    <span class="co"># &quot;factor&quot;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] &quot;factor&quot;</code></pre>
+</div>
+</div>
+</section>
+<section id="logical" class="slide level2">
+<h2>Logical</h2>
+<ul>
+<li>Mantıksal değerleri ifade eder: <strong>TRUE</strong> veya <strong>FALSE</strong></li>
+<li><code>T</code> ve <code>F</code> kısaltmaları kullanılabilir (ama önerilmez)</li>
+<li>Karşılaştırma işlemleri ile elde edilir</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href></a>x <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb41-2"><a href></a>x <span class="sc">&gt;</span> <span class="dv">3</span>     <span class="co"># TRUE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href></a>x <span class="sc">==</span> <span class="dv">10</span>   <span class="co"># FALSE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href></a><span class="fu">as.numeric</span>(<span class="cn">TRUE</span>)   <span class="co"># 1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href></a><span class="fu">as.numeric</span>(<span class="cn">FALSE</span>)  <span class="co"># 0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0</code></pre>
+</div>
+</div>
+</section>
+<section id="factor" class="slide level2">
+<h2>Factor</h2>
+<ul>
+<li>Kategorik verileri temsil etmek için kullanılır.</li>
+<li>İki ana türü vardır:
+<ul>
+<li><strong>Nominal</strong>: Sırasız kategoriler (ör. şehir isimleri)</li>
+<li><strong>Ordinal</strong>: Sıralı kategoriler (ör. küçük &lt; orta &lt; büyük)</li>
+</ul></li>
+<li><code>factor()</code> fonksiyonu ile oluşturulur.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href></a>sizes <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;küçük&quot;</span>, <span class="st">&quot;orta&quot;</span>, <span class="st">&quot;büyük&quot;</span>, <span class="st">&quot;orta&quot;</span>))</span>
+<span id="cb49-2"><a href></a><span class="fu">levels</span>(sizes)  <span class="co"># &quot;büyük&quot; &quot;küçük&quot; &quot;orta&quot;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] &quot;büyük&quot; &quot;küçük&quot; &quot;orta&quot; </code></pre>
+</div>
+</div>
+<h3 id="faktörlerin-depolanma-biçimi">Faktörlerin Depolanma Biçimi</h3>
+<ul>
+<li>Bellekte faktörler <strong>integer</strong> olarak saklanır.</li>
+<li>Her kategoriye karşılık gelen bir <strong>seviye (level)</strong> vardır.</li>
+<li><code>typeof()</code> → “integer”, <code>class()</code> → “factor”</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href></a><span class="fu">typeof</span>(sizes)  <span class="co"># &quot;integer&quot;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] &quot;integer&quot;</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href></a><span class="fu">class</span>(sizes)   <span class="co"># &quot;factor&quot;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] &quot;factor&quot;</code></pre>
+</div>
+</div>
+<h3 id="ordinal-faktörler">Ordinal Faktörler</h3>
+<ul>
+<li>Sıralı kategorilerde <code>ordered = TRUE</code> kullanılır.</li>
+<li>Seviyelerin sırası <code>levels</code> ile belirtilir.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href></a>sizes_ord <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;küçük&quot;</span>, <span class="st">&quot;orta&quot;</span>, <span class="st">&quot;büyük&quot;</span>), </span>
+<span id="cb55-2"><a href></a>                    <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;küçük&quot;</span>, <span class="st">&quot;orta&quot;</span>, <span class="st">&quot;büyük&quot;</span>),</span>
+<span id="cb55-3"><a href></a>                    <span class="at">ordered =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="veri-tipi-dönüşümleri" class="slide level2">
+<h2>Veri Tipi Dönüşümleri</h2>
+<ul>
+<li>🔄 Veri tipleri arasında dönüşüm için <code>as.*()</code> fonksiyonları kullanılır:
+<ul>
+<li><code>as.numeric()</code> → sayısal</li>
+<li><code>as.integer()</code> → tam sayı</li>
+<li><code>as.character()</code> → metin</li>
+<li><code>as.logical()</code> → mantıksal</li>
+<li><code>as.factor()</code> → faktör</li>
+</ul></li>
+<li>⚠️ Otomatik tip dönüşümü (coercion) olabilir:
+<ul>
+<li><code>logical</code> &lt; <code>integer</code> &lt; <code>double</code> &lt; <code>character</code></li>
+</ul></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href></a><span class="fu">as.numeric</span>(<span class="st">&quot;42&quot;</span>)     <span class="co"># 42</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 42</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href></a><span class="fu">as.integer</span>(<span class="fl">3.9</span>)      <span class="co"># 3 (kırpma)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href></a><span class="fu">as.character</span>(<span class="fl">3.14</span>)   <span class="co"># &quot;3.14&quot;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] &quot;3.14&quot;</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href></a><span class="fu">as.logical</span>(<span class="dv">1</span>)        <span class="co"># TRUE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+</div>
+<h3 id="faktörlerde-dönüşüm-dikkati">🛑 Faktörlerde Dönüşüm Dikkati</h3>
+<ul>
+<li><code>as.numeric(factor)</code> → 🎯 <strong>Seviye kodlarını</strong> döner, etiketleri değil.</li>
+<li>✅ Etiketleri sayıya çevirmek için önce karaktere dönüştür:<br>
+<code>as.numeric(as.character(f))</code></li>
+</ul>
+<h3 id="otomatik-dönüşüm-coercion-örnekleri">🔀 Otomatik Dönüşüm (Coercion) Örnekleri</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href></a><span class="fu">c</span>(<span class="dv">1</span>, <span class="cn">TRUE</span>)     <span class="co"># 1 1 (logical → numeric)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1 1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href></a><span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="dv">1</span>)      <span class="co"># &quot;a&quot; &quot;1&quot; (numeric → character)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] &quot;a&quot; &quot;1&quot;</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href></a><span class="cn">TRUE</span> <span class="sc">+</span> <span class="cn">TRUE</span>    <span class="co"># 2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2</code></pre>
+</div>
+</div>
+</section>
+<section id="is.-fonksiyonları" class="slide level2">
+<h2>🧩 <code>is.*()</code> Fonksiyonları</h2>
+<ul>
+<li>Bir nesnenin <strong>belirli bir veri tipine</strong> veya <strong>yapıya</strong> sahip olup olmadığını kontrol eder.</li>
+<li>Sonuç olarak <strong>TRUE</strong> veya <strong>FALSE</strong> döner.</li>
+<li>İsimleri genellikle <code>is.</code> ile başlar.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href></a>x <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb70-2"><a href></a><span class="fu">is.numeric</span>(x)   <span class="co"># TRUE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href></a><span class="fu">is.character</span>(x) <span class="co"># FALSE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href></a>y <span class="ot">&lt;-</span> <span class="st">&quot;Merhaba&quot;</span></span>
+<span id="cb74-2"><a href></a><span class="fu">is.character</span>(y) <span class="co"># TRUE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href></a><span class="fu">is.factor</span>(y)    <span class="co"># FALSE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+</div>
+<p>📌 <strong>Sık Kullanılanlar:</strong></p>
+<ul>
+<li><code>is.numeric()</code> → Sayısal mı?</li>
+<li><code>is.integer()</code> → Tam sayı mı?</li>
+<li><code>is.double()</code> → Ondalıklı sayı mı?</li>
+<li><code>is.character()</code> → Karakter mi?</li>
+<li><code>is.factor()</code> → Faktör mü?</li>
+<li><code>is.logical()</code> → Mantıksal mı?</li>
+<li><code>is.data.frame()</code> → Veri çerçevesi mi?</li>
+<li><code>is.list()</code> → Liste mi?</li>
+<li><code>is.matrix()</code> → Matris mi?</li>
+</ul>
+</section>
+<section id="veri-tipleri-özet" class="slide level2">
+<h2>📌 Veri Tipleri – Özet</h2>
+<ul>
+<li>R’da temel veri tipleri: <strong>numeric (integer, double)</strong>, <strong>character</strong>, <strong>logical</strong>, <strong>factor</strong>.</li>
+<li><code>typeof()</code> → Nesnenin temel türünü verir.</li>
+<li><code>class()</code> → Nesnenin özel sınıfını verir.</li>
+<li><code>is.*()</code> fonksiyonları → Veri tipini kontrol eder.</li>
+<li>Faktörler → Kategorik veri, integer tabanlı.</li>
+<li>Bellek boyutu ve değer aralıkları veri tipine göre değişir.</li>
+<li>Veri tipi doğru seçilmezse analiz ve hesaplama hataları oluşabilir.</li>
+</ul>
 </section>
 <section id="takip-etmeyi-unutma" class="slide level2">
 <h2>📢 Takip Etmeyi Unutma!</h2>
