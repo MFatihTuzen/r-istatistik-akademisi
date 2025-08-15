@@ -1,5 +1,5 @@
 ---
-title: "R Prgoramlama'da Veri Tipleri"
+title: "R Programlama'da Veri Tipleri"
 author: "Dr. M. Fatih Tüzen"
 format:
   revealjs:
