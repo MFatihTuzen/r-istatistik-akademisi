@@ -120,7 +120,7 @@ class(x)    # "character"
 
 ### Özellikler
 
--    Karakter vektörleri yalnızca metin değerleri saklar.
+-   Karakter vektörleri yalnızca metin değerleri saklar.
 -   Vektör içindeki tüm öğeler aynı tiptedir (karakter).
 -   Tür kontrolü: `typeof()`, `class()`.
 
@@ -131,7 +131,7 @@ typeof(cities)  # "character"
 
 ### Faktör ile Farkı (Kısa)
 
--    **Character**: Metin olarak saklar.
+-   **Character**: Metin olarak saklar.
 -   **Factor**: Kategorik veriyi seviye (level) bilgisiyle saklar.
 
 ```{r}
@@ -172,7 +172,7 @@ levels(sizes)  # "büyük" "küçük" "orta"
 
 ### Faktörlerin Depolanma Biçimi
 
--    Bellekte faktörler **integer** olarak saklanır.
+-   Bellekte faktörler **integer** olarak saklanır.
 -   Her kategoriye karşılık gelen bir **seviye (level)** vardır.
 -   `typeof()` → "integer", `class()` → "factor"
 
@@ -183,7 +183,7 @@ class(sizes)   # "factor"
 
 ### Ordinal Faktörler
 
--    Sıralı kategorilerde `ordered = TRUE` kullanılır.
+-   Sıralı kategorilerde `ordered = TRUE` kullanılır.
 -   Seviyelerin sırası `levels` ile belirtilir.
 
 ```{r}
@@ -212,7 +212,7 @@ as.logical(1)        # TRUE
 
 ### 🛑 Faktörlerde Dönüşüm Dikkati
 
--    `as.numeric(factor)` → 🎯 **Seviye kodlarını** döner, etiketleri değil.
+-   `as.numeric(factor)` → 🎯 **Seviye kodlarını** döner, etiketleri değil.
 -   ✅ Etiketleri sayıya çevirmek için önce karaktere dönüştür:\
     `as.numeric(as.character(f))`
 
@@ -242,8 +242,8 @@ is.factor(y)    # FALSE
 
 📌 **Sık Kullanılanlar:**
 
--    `is.numeric()` → Sayısal mı?
--    `is.integer()` → Tam sayı mı?
+-   `is.numeric()` → Sayısal mı?
+-   `is.integer()` → Tam sayı mı?
 -   `is.double()` → Ondalıklı sayı mı?
 -   `is.character()` → Karakter mi?
 -   `is.factor()` → Faktör mü?
