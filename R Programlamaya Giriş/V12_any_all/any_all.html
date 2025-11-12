@@ -442,7 +442,7 @@
   <meta name="generator" content="quarto-1.8.25">
 
   <meta name="author" content="Dr. M. Fatih Tüzen">
-  <title>Kontrol İfadeleri: if-else</title>
+  <title>any() ve all() Fonksiyonları</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -1053,8 +1053,7 @@ margin-right: 0; }
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Kontrol İfadeleri: if-else</h1>
-  <p class="subtitle">if-else Mantığı, Kullanımı ve Örnekler</p>
+  <h1 class="title">any() ve all() Fonksiyonları</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -1065,270 +1064,289 @@ Dr. M. Fatih Tüzen
 </div>
 
 </section>
-<section id="öğrenme-hedefleri" class="slide level2">
-<h2>🎯 Öğrenme Hedefleri</h2>
+<section id="giriş-mantıksal-değerleri-hatırlayalım" class="slide level2">
+<h2>Giriş: Mantıksal Değerleri Hatırlayalım</h2>
 <ul>
-<li>R’da kontrol akışının mantığını anlamak</li>
-<li><code>if</code>, <code>else if</code>, <code>else</code> ifadelerini doğru kullanmak</li>
-<li>Mantıksal operatörlerin çalışma prensibini öğrenmek</li>
-<li><code>ifelse()</code> ile vektör bazlı karar yapıları kurmak</li>
-<li>Kodlarda koşullu akış mantığını uygulayabilmek</li>
+<li>R’de birçok işlem <strong>TRUE</strong> (doğru) veya <strong>FALSE</strong> (yanlış) değeri üretir.</li>
+<li>Bu değerler genellikle bir <strong>koşulun sağlanıp sağlanmadığını</strong> gösterir.</li>
+<li>Bazen birden fazla koşulu <strong>toplu olarak değerlendirmek</strong> isteriz.</li>
+<li>İşte burada <code>any()</code> ve <code>all()</code> fonksiyonları devreye girer.</li>
 </ul>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Hatırlatma</strong></p>
+</div>
+<div class="callout-content">
+<p><code>TRUE</code> ve <code>FALSE</code> mantıksal (logical) veri tipleridir.<br>
+Birden fazla koşulu tek tek kontrol etmek yerine, topluca test etmek mümkündür.</p>
+</div>
+</div>
+</div>
 </section>
-<section id="giriş-neden-kontrol-ifadeleri" class="slide level2">
-<h2>🔍 Giriş: Neden Kontrol İfadeleri?</h2>
-<p>Programlama dillerinde <strong>kontrol ifadeleri</strong>, kodun <strong>karar verme yeteneğini</strong> sağlar.<br>
-Bir koşul sağlanıyorsa belirli bir işlem yapılır, sağlanmıyorsa farklı bir akış izlenir.</p>
-<p>💡 <strong>Kısa tanım:</strong><br>
-&gt; “Kontrol ifadeleri, bir programın akışını koşullara göre yönlendiren yapılardır.”</p>
-</section>
-<section id="mantıksal-temel" class="slide level2">
-<h2>🧠 Mantıksal Temel</h2>
+<section id="any-fonksiyonu-nedir" class="slide level2">
+<h2>any() Fonksiyonu Nedir?</h2>
 <ul>
-<li>Mantıksal değerler: <code>TRUE</code>, <code>FALSE</code>, <code>NA</code></li>
-<li>R’da her koşul bu değerlere göre değerlendirilir.</li>
-<li>Koşulun sonucu:
-<ul>
-<li><code>TRUE</code> → işlem yapılır</li>
-<li><code>FALSE</code> → atlanır</li>
-</ul></li>
+<li><code>any()</code> fonksiyonu, bir vektör içindeki <strong>en az bir</strong> değer <code>TRUE</code> ise <code>TRUE</code> döndürür.</li>
+<li>Yani, <strong>bir koşul bile sağlanıyorsa</strong> sonuç doğrudur.</li>
 </ul>
-<p>💬 <strong>Örnek:</strong></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href></a>x <span class="ot">&lt;-</span> <span class="dv">5</span></span>
-<span id="cb1-2"><a href></a>x <span class="sc">&gt;</span> <span class="dv">3</span>   <span class="co"># TRUE döner</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href></a><span class="fu">any</span>(<span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href></a>x <span class="sc">&lt;</span> <span class="dv">3</span>   <span class="co"># FALSE döner</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href></a>numbers <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="sc">-</span><span class="dv">3</span>, <span class="dv">5</span>)</span>
+<span id="cb3-2"><a href></a><span class="fu">any</span>(numbers <span class="sc">&gt;</span> <span class="dv">0</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+</div>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>🧠 Akılda Kalıcı Tanım</strong></p>
+</div>
+<div class="callout-content">
+<p>“Bir kişi bile doğru söylüyorsa <code>any()</code> ‘evet’ der.”</p>
+</div>
+</div>
+</div>
+</section>
+<section id="any-fonksiyonu-ile-pratik-kullanımlar" class="slide level2">
+<h2>any() Fonksiyonu ile Pratik Kullanımlar</h2>
+<h3 id="veri-içinde-eksik-na-değer-var-mı">Veri içinde eksik (NA) değer var mı?</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">5</span>, <span class="cn">NA</span>, <span class="dv">7</span>) </span>
+<span id="cb5-2"><a href></a><span class="fu">any</span>(<span class="fu">is.na</span>(x))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+</div>
+<h3 id="negatif-değer-var-mı">Negatif değer var mı?</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href></a>numbers <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="sc">-</span><span class="dv">1</span>, <span class="dv">5</span>) </span>
+<span id="cb7-2"><a href></a><span class="fu">any</span>(numbers <span class="sc">&lt;</span> <span class="dv">0</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+</div>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Not</strong></p>
+</div>
+<div class="callout-content">
+<p>📊 Veri kontrolü ve temizleme adımlarında <code>any()</code> çok sık kullanılır.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="all-fonksiyonu-nedir" class="slide level2">
+<h2>all() Fonksiyonu Nedir?</h2>
+<ul>
+<li><code>all()</code> fonksiyonu, bir vektör içindeki <strong>tüm</strong> değerler <code>TRUE</code> ise <code>TRUE</code> döndürür.</li>
+<li>Yani, <strong>herkes doğru söylüyorsa</strong> sonuç doğrudur.</li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href></a><span class="fu">all</span>(<span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">TRUE</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href></a>numbers <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
+<span id="cb11-2"><a href></a><span class="fu">all</span>(numbers <span class="sc">&gt;</span> <span class="dv">0</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+</div>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>💭 Akılda Kalıcı Tanım</strong></p>
+</div>
+<div class="callout-content">
+<p>“<code>all()</code> herkesin doğru olmasını ister.”</p>
+</div>
+</div>
+</div>
+</section>
+<section id="all-fonksiyonu-ile-pratik-kullanımlar" class="slide level2">
+<h2>all() Fonksiyonu ile Pratik Kullanımlar</h2>
+<h3 id="tüm-değerler-pozitif-mi">Tüm değerler pozitif mi?</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href></a>numbers <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>) </span>
+<span id="cb13-2"><a href></a><span class="fu">all</span>(numbers <span class="sc">&gt;</span> <span class="dv">0</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+</div>
+<h3 id="tüm-değerler-eksiksiz-mi">Tüm değerler eksiksiz mi?</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="cn">NA</span>) </span>
+<span id="cb15-2"><a href></a><span class="fu">all</span>(<span class="sc">!</span><span class="fu">is.na</span>(x))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] FALSE</code></pre>
 </div>
 </div>
-</section>
-<section id="if-yapısı" class="slide level2">
-<h2>🧩 <code>if</code> Yapısı</h2>
-<p>Basit kontrol yapısı:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href></a><span class="cf">if</span> (koşul) {</span>
-<span id="cb5-2"><a href></a>  ifade</span>
-<span id="cb5-3"><a href></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<p>💬 <strong>Örnek:</strong></p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href></a>x <span class="ot">&lt;-</span> <span class="dv">10</span></span>
-<span id="cb6-2"><a href></a><span class="cf">if</span> (x <span class="sc">&gt;</span> <span class="dv">5</span>) {</span>
-<span id="cb6-3"><a href></a>  <span class="fu">print</span>(<span class="st">&quot;x 5&#39;ten büyük&quot;</span>)</span>
-<span id="cb6-4"><a href></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] &quot;x 5&#39;ten büyük&quot;</code></pre>
+<p><strong>Not</strong></p>
 </div>
+<div class="callout-content">
+<p>✅ <code>all()</code> fonksiyonu genellikle veri doğrulama kontrollerinde kullanılır.</p>
 </div>
-<p>🧭 Eğer koşul <strong>TRUE</strong> ise, parantez içindeki kod çalışır.</p>
-</section>
-<section id="if-...-else-yapısı" class="slide level2">
-<h2>🧩 <code>if ... else</code> Yapısı</h2>
-<p>Alternatif bir durum tanımlamak için:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href></a><span class="cf">if</span> (koşul) {</span>
-<span id="cb8-2"><a href></a>  ifade1</span>
-<span id="cb8-3"><a href></a>} <span class="cf">else</span> {</span>
-<span id="cb8-4"><a href></a>  ifade2</span>
-<span id="cb8-5"><a href></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p>💬 <strong>Örnek:</strong></p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href></a>x <span class="ot">&lt;-</span> <span class="dv">3</span></span>
-<span id="cb9-2"><a href></a><span class="cf">if</span> (x <span class="sc">&gt;</span> <span class="dv">5</span>) {</span>
-<span id="cb9-3"><a href></a>  <span class="fu">print</span>(<span class="st">&quot;Büyük&quot;</span>)</span>
-<span id="cb9-4"><a href></a>} <span class="cf">else</span> {</span>
-<span id="cb9-5"><a href></a>  <span class="fu">print</span>(<span class="st">&quot;Küçük veya eşit&quot;</span>)</span>
-<span id="cb9-6"><a href></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] &quot;Küçük veya eşit&quot;</code></pre>
 </div>
 </div>
 </section>
-<section id="if-...-else-if-...-else-zincirleri" class="slide level2">
-<h2>🔁 <code>if ... else if ... else</code> Zincirleri</h2>
-<p>Birden fazla koşul kontrolü için:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href></a><span class="cf">if</span> (x <span class="sc">&gt;</span> <span class="dv">10</span>) {</span>
-<span id="cb11-2"><a href></a>  <span class="fu">print</span>(<span class="st">&quot;Büyük&quot;</span>)</span>
-<span id="cb11-3"><a href></a>} <span class="cf">else</span> <span class="cf">if</span> (x <span class="sc">==</span> <span class="dv">10</span>) {</span>
-<span id="cb11-4"><a href></a>  <span class="fu">print</span>(<span class="st">&quot;Eşit&quot;</span>)</span>
-<span id="cb11-5"><a href></a>} <span class="cf">else</span> {</span>
-<span id="cb11-6"><a href></a>  <span class="fu">print</span>(<span class="st">&quot;Küçük&quot;</span>)</span>
-<span id="cb11-7"><a href></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] &quot;Küçük&quot;</code></pre>
-</div>
-</div>
-<p>💡 Çoklu koşullarda, ilk <strong>TRUE</strong> olan koşulun bloğu çalıştırılır.</p>
-</section>
-<section id="mantıksal-operatörler" class="slide level2">
-<h2>⚙️ Mantıksal Operatörler</h2>
+<section id="any-ve-all-farkı" class="slide level2">
+<h2>any() ve all() Farkı</h2>
 <table class="caption-top">
 <thead>
 <tr class="header">
-<th>Operatör</th>
-<th>Anlamı</th>
-<th>Örnek</th>
-<th>Sonuç</th>
+<th>Vektör</th>
+<th><code>any()</code></th>
+<th><code>all()</code></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>&gt;</code></td>
-<td>Büyüktür</td>
-<td><code>5 &gt; 3</code></td>
+<td><code>c(TRUE, FALSE)</code></td>
 <td>TRUE</td>
+<td>FALSE</td>
 </tr>
 <tr class="even">
-<td><code>&lt;</code></td>
-<td>Küçüktür</td>
-<td><code>2 &lt; 1</code></td>
+<td><code>c(FALSE, FALSE)</code></td>
+<td>FALSE</td>
 <td>FALSE</td>
 </tr>
 <tr class="odd">
-<td><code>==</code></td>
-<td>Eşittir</td>
-<td><code>3 == 3</code></td>
+<td><code>c(TRUE, TRUE)</code></td>
 <td>TRUE</td>
-</tr>
-<tr class="even">
-<td><code>!=</code></td>
-<td>Eşit değildir</td>
-<td><code>4 != 5</code></td>
-<td>TRUE</td>
-</tr>
-<tr class="odd">
-<td><code>&amp;</code></td>
-<td>VE</td>
-<td><code>(x &gt; 0) &amp; (x &lt; 10)</code></td>
-<td>TRUE</td>
-</tr>
-<tr class="even">
-<td><code>|</code></td>
-<td>VEYA</td>
-<td><code>(x &gt; 10) | (x == 10)</code></td>
 <td>TRUE</td>
 </tr>
 </tbody>
 </table>
-</section>
-<section id="örnek-sıcaklık-yorumu" class="slide level2">
-<h2>💡 Örnek: Sıcaklık Yorumu</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href></a>temp <span class="ot">&lt;-</span> <span class="dv">25</span></span>
-<span id="cb13-2"><a href></a></span>
-<span id="cb13-3"><a href></a><span class="cf">if</span> (temp <span class="sc">&lt;</span> <span class="dv">0</span>) {</span>
-<span id="cb13-4"><a href></a>  <span class="fu">print</span>(<span class="st">&quot;Donma noktası altı!&quot;</span>)</span>
-<span id="cb13-5"><a href></a>} <span class="cf">else</span> <span class="cf">if</span> (temp <span class="sc">&lt;</span> <span class="dv">15</span>) {</span>
-<span id="cb13-6"><a href></a>  <span class="fu">print</span>(<span class="st">&quot;Soğuk bir gün&quot;</span>)</span>
-<span id="cb13-7"><a href></a>} <span class="cf">else</span> <span class="cf">if</span> (temp <span class="sc">&lt;</span> <span class="dv">30</span>) {</span>
-<span id="cb13-8"><a href></a>  <span class="fu">print</span>(<span class="st">&quot;Ilık bir hava&quot;</span>)</span>
-<span id="cb13-9"><a href></a>} <span class="cf">else</span> {</span>
-<span id="cb13-10"><a href></a>  <span class="fu">print</span>(<span class="st">&quot;Oldukça sıcak!&quot;</span>)</span>
-<span id="cb13-11"><a href></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] &quot;Ilık bir hava&quot;</code></pre>
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
+<p><strong>🎯 Kısa Özet</strong></p>
 </div>
-<p>🧩 Gerçek hayattan karar mekanizması örneği.</p>
-</section>
-<section id="vektörleştirilmiş-koşullar-ifelse" class="slide level2">
-<h2>🧮 Vektörleştirilmiş Koşullar: <code>ifelse()</code></h2>
-<p><code>ifelse()</code> tek tek <code>if</code> yazmadan <strong>vektör düzeyinde</strong> koşul kontrolü sağlar.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">8</span>)</span>
-<span id="cb15-2"><a href></a><span class="fu">ifelse</span>(x <span class="sc">&gt;</span> <span class="dv">5</span>, <span class="st">&quot;Büyük&quot;</span>, <span class="st">&quot;Küçük veya eşit&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] &quot;Küçük veya eşit&quot; &quot;Küçük veya eşit&quot; &quot;Büyük&quot;          </code></pre>
-</div>
-</div>
-<p>📊 Sonuç: <code>[&quot;Küçük veya eşit&quot;, &quot;Küçük veya eşit&quot;, &quot;Büyük&quot;]</code></p>
-</section>
-<section id="if-vs-ifelse" class="slide level2">
-<h2>⚖️ <code>if</code> vs <code>ifelse</code></h2>
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th>Özellik</th>
-<th><code>if</code></th>
-<th><code>ifelse()</code></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Girdi</td>
-<td>Tek koşul (scalar)</td>
-<td>Vektör</td>
-</tr>
-<tr class="even">
-<td>Çıktı</td>
-<td>Tek değer</td>
-<td>Vektör</td>
-</tr>
-<tr class="odd">
-<td>Kullanım Alanı</td>
-<td>Akış kontrolü</td>
-<td>Veri işlemede sınıflama</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="ek-bilgi-case_when-tidyverse" class="slide level2">
-<h2>🧠 Ek Bilgi: <code>case_when()</code> (tidyverse)</h2>
-<p>Çoklu koşullarda daha okunabilir yapı sağlar.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb17-2"><a href></a><span class="fu">case_when</span>(</span>
-<span id="cb17-3"><a href></a>  temp <span class="sc">&lt;</span> <span class="dv">0</span>  <span class="sc">~</span> <span class="st">&quot;Donma noktası altı&quot;</span>,</span>
-<span id="cb17-4"><a href></a>  temp <span class="sc">&lt;</span> <span class="dv">15</span> <span class="sc">~</span> <span class="st">&quot;Soğuk&quot;</span>,</span>
-<span id="cb17-5"><a href></a>  temp <span class="sc">&lt;</span> <span class="dv">30</span> <span class="sc">~</span> <span class="st">&quot;Ilık&quot;</span>,</span>
-<span id="cb17-6"><a href></a>  <span class="cn">TRUE</span>      <span class="sc">~</span> <span class="st">&quot;Sıcak&quot;</span></span>
-<span id="cb17-7"><a href></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] &quot;Ilık&quot;</code></pre>
-</div>
-</div>
-<p>📘 <strong>Not:</strong> <code>case_when()</code> fonksiyonu <code>ifelse()</code> zincirlerinin tidyverse eşdeğeridir.</p>
-</section>
-<section id="sık-yapılan-hatalar" class="slide level2">
-<h2>⚠️ Sık Yapılan Hatalar</h2>
+<div class="callout-content">
 <ul>
-<li><code>=</code> yerine <code>==</code> kullanmamak</li>
-<li>Parantez unutmak</li>
-<li><code>if (NA)</code> yazmak</li>
-<li><code>if</code> ile vektör kullanmak (<code>if (c(TRUE, FALSE))</code>)</li>
-<li><code>else</code> bloğunu yanlış hizalamak</li>
+<li><code>any()</code> → En az biri TRUE ise TRUE</li>
+<li><code>all()</code> → Hepsi TRUE ise TRUE</li>
 </ul>
-<p>🧭 Kod okunabilirliği, hata yönetimi kadar önemlidir.</p>
+</div>
+</div>
+</div>
 </section>
-<section id="ipuçları" class="slide level2">
-<h2>💡 İpuçları</h2>
-<ul>
-<li>Her zaman girinti kullan</li>
-<li>Blokları <code>{}</code> ile netleştir</li>
-<li>Koşulları kısa ama açıklayıcı yaz</li>
-<li>Mantıksal testleri küçük parçalar halinde kontrol et</li>
-<li>Hatalı durumları önceden test et:</li>
-</ul>
+<section id="if-koşullarında-kullanımı" class="slide level2">
+<h2>if Koşullarında Kullanımı</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href></a><span class="fu">stopifnot</span>(<span class="fu">is.numeric</span>(x))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href></a>numbers <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="sc">-</span><span class="dv">1</span>, <span class="dv">4</span>)</span>
+<span id="cb17-2"><a href></a></span>
+<span id="cb17-3"><a href></a><span class="cf">if</span> (<span class="fu">any</span>(numbers <span class="sc">&lt;</span> <span class="dv">0</span>)) {</span>
+<span id="cb17-4"><a href></a><span class="fu">print</span>(<span class="st">&quot;Negatif sayı var.&quot;</span>)</span>
+<span id="cb17-5"><a href></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] &quot;Negatif sayı var.&quot;</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href></a><span class="cf">if</span> (<span class="fu">all</span>(numbers <span class="sc">&gt;</span> <span class="dv">0</span>)) {</span>
+<span id="cb19-2"><a href></a><span class="fu">print</span>(<span class="st">&quot;Tüm sayılar pozitif.&quot;</span>)</span>
+<span id="cb19-3"><a href></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Not</strong></p>
+</div>
+<div class="callout-content">
+<p>⚙️ <code>any()</code> ve <code>all()</code> koşul ifadelerinde sıkça kullanılır.<br>
+Koşulun “bir kısmı mı” yoksa “tamamı mı” sağlanıyor, kolayca test edebilirsin.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="na-değerlerine-dikkat" class="slide level2">
+<h2>NA Değerlerine Dikkat!</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href></a><span class="fu">any</span>(<span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">NA</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href></a><span class="fu">all</span>(<span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">NA</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] NA</code></pre>
+</div>
+</div>
+<p>Her iki durumda da sonuç <strong>NA</strong> dönebilir.<br>
+Bu tür belirsizlikleri önlemek için <code>na.rm = TRUE</code> argümanı kullanılır.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href></a><span class="fu">any</span>(<span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">NA</span>), <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href></a><span class="fu">all</span>(<span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">NA</span>), <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+</div>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Not</strong></p>
+</div>
+<div class="callout-content">
+<p>🧩 <strong>na.rm = TRUE</strong> → “Eksik değerleri yok say” anlamına gelir.</p>
+</div>
+</div>
 </div>
 </section>
 <section id="özet" class="slide level2">
 <h2>🎯 Özet</h2>
 <ul>
-<li><code>if</code>, <code>else if</code>, <code>else</code>: akış kontrolünün temel taşları</li>
-<li><code>ifelse()</code>: vektör bazlı koşullu işlemler</li>
-<li><code>case_when()</code>: tidyverse stili okunabilir karar yapıları</li>
-<li>Doğru mantıksal operatör kullanımı kod kalitesini artırır</li>
-<li>Basit karar yapıları bile veri analizinde güçlü araçlardır</li>
+<li><code>any()</code> → En az bir koşul doğruysa TRUE</li>
+<li><code>all()</code> → Tüm koşullar doğruysa TRUE</li>
+<li>NA varsa → <code>na.rm = TRUE</code> kullan</li>
+<li><code>if</code> koşullarında kontrol kolaylığı sağlar</li>
 </ul>
-<p>💬 <strong>Unutma:</strong> Programlama sadece komut yazmak değil, <strong>mantıklı düşünmeyi kodla ifade etmektir.</strong></p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>🗣️ Kısa Hatırlatma</strong></p>
+</div>
+<div class="callout-content">
+<p>“<code>any()</code> bir tane doğru arar, <code>all()</code> herkesin doğru olmasını ister.”</p>
+</div>
+</div>
+</div>
 </section>
 <section id="takip-etmeyi-unutma" class="slide level2">
 <h2>📢 Takip Etmeyi Unutma!</h2>
